@@ -8,8 +8,6 @@ var path = require('path')
 var ssbKeys = require('ssb-keys')
 var http = require('http')
 
-// var server = Server(config)
-
 function createServer () {
     var appName = 'ssb-ev'
 
