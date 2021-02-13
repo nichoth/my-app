@@ -50,6 +50,14 @@ app.on('activate', () => {
     }
 });
 
+app.on('will-quit', function (ev) {
+    console.log('**will quit**', ev)
+    if (server) server.kill()
+    console.log('ssssssss', server)
+    // server.kill()
+    // server.exit(0)
+})
+
 
 
 // In this file you can include the rest of your app's specific main process
