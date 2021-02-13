@@ -179,3 +179,5 @@ node_modules
 
 bundle.js
 dist/
+
+public/index.css
