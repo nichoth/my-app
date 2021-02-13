@@ -7,7 +7,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
   app.quit();
 };
 
-var p = __dirname + '/src/server/index.js'
+var p = __dirname + '/server/index.js'
 var server = fork(p)
 
 server.on('uncaughtException', function (err) {
