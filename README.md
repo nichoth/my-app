@@ -1,5 +1,7 @@
 Trying `electron-forge` and `electron-builder`
 
+This is from https://www.electronjs.org/docs/tutorial/quick-start
+
 Installed `electron-builder`:
 ```
 npm i -D electron-builer
