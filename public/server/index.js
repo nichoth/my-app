@@ -7,6 +7,8 @@ var manifest = require('../manifest.json')
 var path = require('path')
 var ssbKeys = require('ssb-keys')
 var http = require('http')
+var muxrpc = require('muxrpc')
+var S = require('pull-stream')
 
 function createServer () {
     var appName = 'ssb-ev'
