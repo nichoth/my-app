@@ -5,14 +5,15 @@
   "description": "My Electron application description",
   "main": "public/main.js",
   "scripts": {
-    "start": "electron-forge start",
+    "forge": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\"",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "tron": "electron ."
+    "dist": "npm run build-js && electron-builder",
+    "tron": "electron .",
+    "build-js": "browserify -d src/index.js > public/bundle.js"
   },
   "build": {
     "appId": "your.id",
@@ -75,6 +76,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "browserify": "^17.0.0",
     "electron": "11.2.3",
     "electron-builder": "^22.9.1"
   }
