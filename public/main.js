@@ -21,14 +21,15 @@ const createWindow = () => {
         height: 600,
     });
 
+    // wait for the server to start before starting the UI
     server.once('message', function (msg) {
         // and load the index.html of the app.
-        mainWindow.loadFile(__dirname + '/index.html')
+        mainWindow.loadFile(path.join(__dirname, 'index.html'))
         console.log('**msg**', msg)
     })
 
     // and load the index.html of the app.
-    mainWindow.loadFile(path.join(__dirname, 'index.html'));
+    // mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
