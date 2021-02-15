@@ -181,3 +181,4 @@ bundle.js
 dist/
 
 public/index.css
+public/server/

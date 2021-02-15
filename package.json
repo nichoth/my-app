@@ -13,7 +13,8 @@
     "pack": "electron-builder --dir",
     "dist": "npm run build-js && electron-builder",
     "tron": "npm run build-js && electron .",
-    "build-js": "browserify -d src/index.js > public/bundle.js"
+    "copy": "cp src/server/* public/server",
+    "build-js": "npm run copy && browserify -d src/index.js > public/bundle.js"
   },
   "build": {
     "appId": "your.id",
