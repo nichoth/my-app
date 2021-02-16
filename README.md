@@ -7,7 +7,7 @@ Installed `electron-builder`:
 npm i -D electron-builer
 ```
 
-Use electron-builder:
+**Use electron-builder:**
 * This one works
 * puts the output in `/dist/`
 ```
@@ -21,3 +21,14 @@ Use electron-forge:
 npm run make
 ```
 
+------------------------------------------
+
+## Package things
+```
+$ npm run dist
+```
+
+## develop locally
+```
+$ npm run tron
+```
