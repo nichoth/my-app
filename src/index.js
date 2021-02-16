@@ -5,6 +5,7 @@ var wsClient = require('pull-ws/client')
 var muxrpc = require('muxrpc')
 var manifest = require('./manifest.json')
 var muxrpc = require('muxrpc')
+var view = require('./view')
 
 var WS_URL = 'ws://localhost:' + (process.env.WS_PORT || '8000')
 
@@ -27,6 +28,8 @@ function connectSbot ({ onClose }, cb) {
         cb(null, sbot)
     }
 }
+
+view()
 
 connectSbot({}, function (err, sbot) {
     if (err) throw err
