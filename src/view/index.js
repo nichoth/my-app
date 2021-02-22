@@ -3,7 +3,15 @@ import { html } from 'htm/preact'
 var evs = require('../EVENTS')
 var Bus = require('@nichoth/events')
 
-module.exports = function eventual ({ emit }) {
+function Component ({ emit }) {
+    return html`
+        <form>
+            <button onClick=${emit(evs.test.foo)}>foo</button>
+        </form>
+    `
+}
+
+module.exports = function eventual () {
     var bus = Bus({
         memo: true
     })
@@ -11,9 +19,7 @@ module.exports = function eventual ({ emit }) {
 
     var _html = html`<div>
         <p>Hello from JS</p>
-        <form>
-            <button onClick=${emit(evs.test.foo)}>foo</button>
-        </form>
+        <${Component} emit=${emit} />
     </div>`
 
     var el =  document.getElementById('content')

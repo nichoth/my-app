@@ -40,7 +40,7 @@ function subscribe (bus) {
 
 connectSbot({}, function (err, sbot) {
     if (err) throw err
-    var { bus } = view({ emit })
+    var { bus } = view()
     subscribe(bus)
     console.log('sbooooot', err, sbot)
 })
