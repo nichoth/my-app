@@ -8,7 +8,7 @@ npm i -D electron-builer
 ```
 
 **Use electron-builder:**
-* This one works
+* **This one works**
 * puts the output in `/dist/`
 ```
 npm run dist
