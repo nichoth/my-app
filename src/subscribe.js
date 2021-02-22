@@ -9,6 +9,7 @@ function subscribe ({ state }) {
     bus.on(evs.test.foo, ev => {
         ev.preventDefault()
         console.log('got a foo', ev)
+        state.foo.set(state.foo() + 1)
     })
 
     return bus
