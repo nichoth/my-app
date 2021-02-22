@@ -7,7 +7,9 @@ var manifest = require('./manifest.json')
 var muxrpc = require('muxrpc')
 var view = require('./view')
 
-var evs = require('./EVENTS')
+// var evs = require('./EVENTS')
+var subscribe = require('./subscribe')
+var state = require('./state')
 
 var WS_URL = 'ws://localhost:' + (process.env.WS_PORT || '8000')
 
@@ -31,16 +33,12 @@ function connectSbot ({ onClose }, cb) {
     }
 }
 
-function subscribe (bus) {
-    bus.on(evs.test.foo, ev => {
-        ev.preventDefault()
-        console.log('got a foo', ev)
-    })
-}
+var bus = subscribe({ bus, state })
+var emit = bus.emit.bind(bus)
 
 connectSbot({}, function (err, sbot) {
     if (err) throw err
-    var { bus } = view()
+    view({ state, emit })
     subscribe(bus)
     console.log('sbooooot', err, sbot)
 })
