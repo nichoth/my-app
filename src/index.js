@@ -33,12 +33,11 @@ function connectSbot ({ onClose }, cb) {
     }
 }
 
-var bus = subscribe({ bus, state })
+var bus = subscribe({ state })
 var emit = bus.emit.bind(bus)
 
 connectSbot({}, function (err, sbot) {
     if (err) throw err
     view({ state, emit })
-    subscribe(bus)
     console.log('sbooooot', err, sbot)
 })
