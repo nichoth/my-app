@@ -33,8 +33,10 @@ function Component ({ emit, state }) {
 module.exports = function Eventual ({ state, emit }) {
     var route = Route()
 
+
     // trying this for wonky electron routes
     process.nextTick(() => emit(evs.route.change, '/'))
+
 
     route(function onRoute (path) {
         emit(evs.route.change, path)
@@ -45,7 +47,5 @@ module.exports = function Eventual ({ state, emit }) {
         <${Component} emit=${emit} state=${state} />
     </div>`
 
-    var el =  document.getElementById('content')
-
-    render(_html, el)
+    render(_html, document.getElementById('content'))
 }
