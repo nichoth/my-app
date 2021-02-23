@@ -32,3 +32,8 @@ $ npm run dist
 ```
 $ npm run tron
 ```
+
+--------------------------------------
+
+Electron doesn't really have routes, but the routes work in here because we
+listen for 'click' events and get the href from the link address
