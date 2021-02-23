@@ -8,7 +8,6 @@ var muxrpc = require('muxrpc')
 var view = require('./view')
 
 // -------------------------------------
-// var evs = require('./EVENTS')
 var subscribe = require('./subscribe')
 var state = require('./state')
 // -------------------------------------
