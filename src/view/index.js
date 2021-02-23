@@ -10,12 +10,10 @@ function Component ({ emit, state }) {
         setState(newState)
     })
 
-    return html`
-        <form>
-            <p>foos: ${_state.foo}</p>
-            <button onClick=${emit(evs.test.foo)}>foo</button>
-        </form>
-    `
+    return html`<form>
+        <p>foos: ${_state.foo}</p>
+        <button onClick=${emit(evs.test.foo)}>foo</button>
+    </form>`
 }
 
 module.exports = function eventual ({ state, emit }) {

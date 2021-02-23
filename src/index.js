@@ -7,9 +7,11 @@ var manifest = require('./manifest.json')
 var muxrpc = require('muxrpc')
 var view = require('./view')
 
+// -------------------------------------
 // var evs = require('./EVENTS')
 var subscribe = require('./subscribe')
 var state = require('./state')
+// -------------------------------------
 
 var WS_URL = 'ws://localhost:' + (process.env.WS_PORT || '8000')
 
