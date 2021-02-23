@@ -12,6 +12,11 @@ function subscribe ({ state }) {
         state.foo.set(state.foo() + 1)
     })
 
+    bus.on(evs.route.change, path => {
+        console.log('subscribed to route', path)
+        state.route.set(path)
+    })
+
     return bus
 }
 
