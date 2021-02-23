@@ -20,7 +20,7 @@ function Component ({ emit, state }) {
     var route = match ? match.action(match) : null
     var routeView = route ? route.view : null
 
-    console.log('route', route)
+    console.log('match', match)
 
     console.log('in component', _state)
 
@@ -29,18 +29,11 @@ function Component ({ emit, state }) {
         <p>foos: ${_state.foo}</p>
         <button onClick=${emit(evs.test.foo)}>foo</button>
     <//>`
-
-    // return html`<form>
-    //     <p>foos: ${_state.foo}</p>
-    //     <button onClick=${emit(evs.test.foo)}>foo</button>
-    // </form>`
 }
 
 module.exports = function Eventual ({ state, emit }) {
-
     var route = Route()
     route(function onRoute (path) {
-        console.log('onRoute', path)
         emit(evs.route.change, path)
     })
 
