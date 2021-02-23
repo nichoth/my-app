@@ -1,11 +1,10 @@
 import { render } from 'preact'
 import { useState } from 'preact/hooks';
 import { html } from 'htm/preact'
+var Route = require('route-event')
 var Router = require('./routes')
 var Shell = require('./shell')
 var evs = require('../EVENTS')
-// var catchRoutes = require('@nichoth/catch-routes')
-var Route = require('route-event')
 
 var router = Router()
 
@@ -33,6 +32,10 @@ function Component ({ emit, state }) {
 
 module.exports = function Eventual ({ state, emit }) {
     var route = Route()
+
+    // trying this for wonky electron routes
+    process.nextTick(() => emit(evs.route.change, '/'))
+
     route(function onRoute (path) {
         emit(evs.route.change, path)
     })
