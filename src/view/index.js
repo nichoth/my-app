@@ -2,10 +2,10 @@ import { render } from 'preact'
 import { useState } from 'preact/hooks';
 import { html } from 'htm/preact'
 var Route = require('route-event')
+var raf = require('raf')
 var Router = require('./routes')
 var Shell = require('./shell')
 var evs = require('../EVENTS')
-var raf = require('raf')
 
 var router = Router()
 
@@ -24,9 +24,10 @@ function Component ({ emit, state }) {
 
     return html`<${Shell} emit=${emit} ...${_state}>
         <${routeView} emit=${emit} ...${_state} />
-        <p>foos: ${_state.foo}</p>
-        <button onClick=${emit(evs.test.foo)}>foo</button>
     <//>`
+
+    // <p>foos: ${_state.foo}</p>
+    // <button onClick=${emit(evs.test.foo)}>foo</button>
 }
 
 module.exports = function Eventual ({ state, emit }) {
