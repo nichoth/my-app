@@ -11,7 +11,7 @@ body {
   margin: 0;
   background-color: rgba(119, 119, 119, 1);  // middle gray
   button {
-      cursor: pointer;
+    cursor: pointer;
   }
   padding-bottom: 4rem;
 }
@@ -118,9 +118,7 @@ button.edit {
   list-style: none;
 
   display: grid;
-  // grid-gap: 1rem;
   gap: 2rem;
-  // grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   align-items: stretch;
