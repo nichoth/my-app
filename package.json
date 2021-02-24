@@ -11,9 +11,10 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\"",
     "pack": "electron-builder --dir",
-    "dist": "npm run build-js && electron-builder",
-    "tron": "npm run build-js && electron .",
+    "dist": "npm run build && electron-builder",
+    "tron": "npm run build && electron .",
     "copy": "cp src/server/* public/server",
+    "build": "npm run build-js && npm run sass",
     "sass": "sass src/style/index.scss public/style.css",
     "build-js": "npm run copy && browserify --debug -p esmify src/index.js > public/bundle.js"
   },
@@ -58,6 +59,7 @@
   },
   "dependencies": {
     "@nichoth/events": "^1.1.2",
+    "electron": "11.2.3",
     "electron-squirrel-startup": "^1.0.0",
     "htm": "^3.0.4",
     "muxrpc": "^6.5.2",
@@ -89,7 +91,6 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "browserify": "^17.0.0",
-    "electron": "11.2.3",
     "electron-builder": "^22.9.1",
     "esmify": "^2.1.1",
     "sass": "^1.32.8"
