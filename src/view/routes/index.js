@@ -9,7 +9,6 @@ var evs = require('../../EVENTS')
 function _Router () {
     var router = Router()
     router.addRoute('/', function (match) {
-        console.log('home route', match)
         return { view: Home }
     })
 

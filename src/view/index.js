@@ -5,6 +5,7 @@ var Route = require('route-event')
 var Router = require('./routes')
 var Shell = require('./shell')
 var evs = require('../EVENTS')
+var raf = require('raf')
 
 var router = Router()
 
@@ -12,14 +13,12 @@ function Component ({ emit, state }) {
     const [_state, setState] = useState(state())
 
     state(function onChange (newState) {
-        setState(newState)
+        raf(() => setState(newState))
     })
 
     var match = router.match(_state.route || '/')
     var route = match ? match.action(match) : null
     var routeView = route ? route.view : null
-
-    console.log('match', match)
 
     console.log('in component', _state)
 
@@ -38,9 +37,7 @@ module.exports = function Eventual ({ state, emit }) {
     process.nextTick(() => emit(evs.route.change, '/'))
 
 
-    route(function onRoute (path) {
-        emit(evs.route.change, path)
-    })
+    route(path => emit(evs.route.change, path))
 
     var _html = html`<div>
         <p>Hello from JS</p>

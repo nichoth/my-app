@@ -14,6 +14,7 @@
     "dist": "npm run build-js && electron-builder",
     "tron": "npm run build-js && electron .",
     "copy": "cp src/server/* public/server",
+    "sass": "sass src/style/index.scss public/style.css",
     "build-js": "npm run copy && browserify --debug -p esmify src/index.js > public/bundle.js"
   },
   "build": {
@@ -65,6 +66,7 @@
     "preact": "^10.5.12",
     "pull-stream": "^3.6.14",
     "pull-ws": "^3.3.2",
+    "raf": "^3.4.1",
     "route-event": "^3.1.0",
     "ruta3": "^2.0.1",
     "ssb-backlinks": "^2.1.1",
@@ -89,6 +91,7 @@
     "browserify": "^17.0.0",
     "electron": "11.2.3",
     "electron-builder": "^22.9.1",
-    "esmify": "^2.1.1"
+    "esmify": "^2.1.1",
+    "sass": "^1.32.8"
   }
 }
