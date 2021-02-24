@@ -17,7 +17,7 @@ function createServer () {
         appName += ('-' + process.env.APP_NAME)
     }
 
-    console.log('node env', process.env.NODE_ENV)
+    console.log('NODE_ENV', process.env.NODE_ENV)
     // use dev database
     if (process.env.NODE_ENV === 'development' && !process.env.APP_NAME) {
         appName = 'ssb-ev-DEV'

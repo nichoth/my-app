@@ -7,8 +7,11 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
     app.quit();
 };
 
-var p = __dirname + '/server/index.js'
-var server = fork(p)
+var server = fork(__dirname + '/server/index.js', [], {
+    env: {
+        NODE_ENV: 'development'
+    }
+})
 
 server.on('uncaughtException', function (err) {
     console.log('***uncaught exception***', err)
