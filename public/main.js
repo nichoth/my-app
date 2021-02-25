@@ -56,9 +56,10 @@ app.on('activate', () => {
 });
 
 app.on('will-quit', function (ev) {
-    console.log('**will quit**', ev)
+    console.log('**will quit**')
+    // console.log('**will quit**', ev)
     if (server) server.kill()
-    console.log('ssssssss', server)
+    // console.log('ssssssss', server)
     // server.kill()
     // server.exit(0)
 })

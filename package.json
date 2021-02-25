@@ -21,11 +21,19 @@
     "release": "electron-builder --mac --windows --linux --publish always"
   },
   "build": {
-    "appId": "your.id",
-    "mac": {
-      "category": "your.app.category.type"
-    }
-  },
+		"appId": "com.yourcompany.yourapp",
+		"productName": "My App",
+		"mac": {
+			"category": "public.app-category.lifestyle"
+		},
+		"dmg": {
+			"icon": false
+		},
+		"linux": {
+			"target": ["AppImage"],
+			"category": "Office"
+		}
+	},
   "keywords": [],
   "author": {
     "name": "nichoth",
