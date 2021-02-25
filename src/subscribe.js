@@ -69,6 +69,8 @@ function subscribe ({ sbot, state }) {
     })
 
 
+    // -------------------------------------------------
+
 
     function getProfile (cb) {
         sbot.whoami(function (err, res) {
