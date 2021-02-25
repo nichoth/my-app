@@ -31,9 +31,9 @@ function Component ({ emit, state }) {
 }
 
 module.exports = function Eventual ({ state, emit }) {
-    var route = Route()
+    var onRoute = Route()
 
-    route(path => emit(evs.route.change, path))
+    onRoute(path => emit(evs.route.change, path))
 
     // trying this for wonky electron routes
     process.nextTick(() => emit(evs.route.change, '/'))

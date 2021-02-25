@@ -3,12 +3,12 @@ var ssbConfigInject = require('ssb-config/inject')
 var ws = require('pull-ws/server')
 var WS_PORT = process.env.WS_PORT || 8000
 var caps = require('ssb-caps')
-var manifest = require('../manifest.json')
 var path = require('path')
 var ssbKeys = require('ssb-keys')
 var http = require('http')
 var muxrpc = require('muxrpc')
 var S = require('pull-stream')
+var manifest = require('../manifest.json')
 
 function createServer () {
     var appName = 'ssb-ev'
