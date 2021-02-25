@@ -33,14 +33,17 @@ function Component ({ emit, state }) {
 module.exports = function Eventual ({ state, emit }) {
     var route = Route()
 
+    route(path => emit(evs.route.change, path))
 
     // trying this for wonky electron routes
     process.nextTick(() => emit(evs.route.change, '/'))
 
-    emit(evs.profile.get, '')
+    emit(evs.profile.get, null)
+    emit(evs.posts.get, null)
 
-
-    route(path => emit(evs.route.change, path))
+    // should make this better
+    // it could be done entirely inside the `route` function
+    emit(evs.posts.get, null)
 
     var _html = html`<div>
         <p>Hello from JS</p>
