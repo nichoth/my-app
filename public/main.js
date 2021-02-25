@@ -7,7 +7,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
     app.quit();
 };
 
-var server = fork(__dirname + '/server/index.js', [], {
+var server = fork(require.resolve('./server'), [], {
     env: {
         NODE_ENV: 'development'
     }
