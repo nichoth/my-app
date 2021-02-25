@@ -1,21 +1,22 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
-const { fork } = require('child_process')
+// const { fork } = require('child_process')
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
     app.quit();
 };
 
-var server = fork(require.resolve('./server'), [], {
-    env: {
-        NODE_ENV: 'development'
-    }
-})
+// var server = fork(require.resolve('./server'), [], {
+//     env: {
+//         NODE_ENV: 'development'
+//     }
+// })
+require('./server')()
 
-server.on('uncaughtException', function (err) {
-    console.log('***uncaught exception***', err)
-})
+// server.on('uncaughtException', function (err) {
+//     console.log('***uncaught exception***', err)
+// })
 
 const createWindow = () => {
     // Create the browser window.
@@ -24,12 +25,14 @@ const createWindow = () => {
         height: 600
     });
 
+    mainWindow.loadFile(path.join(__dirname, 'index.html'))
+
     // wait for the server to start before loading the UI
-    server.once('message', function (msg) {
-        // and load the index.html of the app.
-        mainWindow.loadFile(path.join(__dirname, 'index.html'))
-        console.log('**msg**', msg)
-    })
+    // server.once('message', function (msg) {
+    //     // and load the index.html of the app.
+    //     mainWindow.loadFile(path.join(__dirname, 'index.html'))
+    //     console.log('**msg**', msg)
+    // })
 
     // and load the index.html of the app.
     // mainWindow.loadFile(path.join(__dirname, 'index.html'));
