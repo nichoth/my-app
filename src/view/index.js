@@ -37,6 +37,8 @@ module.exports = function Eventual ({ state, emit }) {
     // trying this for wonky electron routes
     process.nextTick(() => emit(evs.route.change, '/'))
 
+    emit(evs.profile.get, '')
+
 
     route(path => emit(evs.route.change, path))
 

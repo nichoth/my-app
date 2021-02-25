@@ -1,7 +1,8 @@
-var Bus = require('@nichoth/events')
 var evs = require("./EVENTS")
+var Bus = require('@nichoth/events')
+var getAvatar = require('ssb-avatar')
 
-function subscribe ({ state }) {
+function subscribe ({ sbot, state }) {
     var bus = Bus({
         memo: true
     })
@@ -17,7 +18,26 @@ function subscribe ({ state }) {
         state.route.set(path)
     })
 
+    bus.on(evs.profile.get, () => {
+        getProfile(function (err, profile) {
+            if (err) throw err
+            state.me.set(profile)
+        })
+    })
+
+    function getProfile (cb) {
+        sbot.whoami(function (err, res) {
+            if (err) throw err
+            var { id } = res
+
+            getAvatar(sbot, id, id, function (err, profile) {
+                cb(err, profile)
+            })
+        })
+    }
+
     return bus
 }
+
 
 module.exports = subscribe
