@@ -7,7 +7,8 @@ var state = struct({
     me: observ({}),
     posts: observ(null),
     postUrls: observ({}),
-    people: observ({})
+    people: observ({}),
+    followed: observ([])
 })
 
 module.exports = state

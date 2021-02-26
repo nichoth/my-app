@@ -4,7 +4,9 @@ var evs = namespace({
     test: ['foo'],
     profile: ['setAvatar', 'save', 'get'],
     route: ['change'],
-    posts: ['get']
+    posts: ['get'],
+    followed: ['get'],
+    follow: ['start']
 })
 
 module.exports = evs

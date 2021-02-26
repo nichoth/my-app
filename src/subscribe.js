@@ -69,9 +69,32 @@ function subscribe ({ sbot, state }) {
         })
     })
 
+    bus.on(evs.followed.get, function () {
+        getFollowing(function (err, folls) {
+            console.log('got following', err, folls)
+            if (err) throw err
+            state.followed.set(folls)
+        })
+    })
+
+
+
+
 
     // -------------------------------------------------
 
+
+
+
+
+    function getFollowing (cb) {
+        S(
+            sbot.friends.createFriendStream({ meta: true, hops: 1 }),
+            S.collect(function (err, res) {
+                cb(err, res)
+            })
+        )
+    }
 
     function getProfile (cb) {
         sbot.whoami(function (err, res) {
@@ -83,7 +106,6 @@ function subscribe ({ sbot, state }) {
             })
         })
     }
-
 
     function getPosts (cb) {
         S(
