@@ -7,9 +7,9 @@ var Router = require('./routes')
 var Shell = require('./shell')
 var evs = require('../EVENTS')
 
-var router = Router()
 
 function Component ({ emit, state }) {
+    var router = Router({ emit, state })
     const [_state, setState] = useState(state())
 
     state(function onChange (newState) {
@@ -39,10 +39,6 @@ module.exports = function Eventual ({ state, emit }) {
     process.nextTick(() => emit(evs.route.change, '/'))
 
     emit(evs.profile.get, null)
-    emit(evs.posts.get, null)
-
-    // should make this better
-    // it could be done entirely inside the `route` function
     emit(evs.posts.get, null)
 
     var _html = html`<div>

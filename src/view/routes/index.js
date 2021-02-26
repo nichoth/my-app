@@ -6,9 +6,13 @@ var createPostView = require('./post')
 var Pubs = require('./pubs')
 var evs = require('../../EVENTS')
 
-function _Router () {
+function _Router ({ emit, state }) {
     var router = Router()
     router.addRoute('/', function (match) {
+        // TODO -- need to be able to get them multiple times
+        if (!state.posts()) {
+            emit(evs.posts.get, null)
+        }
         return { view: Home }
     })
 

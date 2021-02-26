@@ -33,7 +33,8 @@ function subscribe ({ sbot, state }) {
     })
 
     bus.on(evs.posts.get, () => {
-        console.log('get posts')
+        console.log('get posts in subscribe')
+
         getPosts(function (err, msgs) {
             if (err) throw err
 
